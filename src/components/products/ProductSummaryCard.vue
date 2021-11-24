@@ -11,6 +11,7 @@
         <img :src="product.image" alt="" />
 
       <button class="view-product-btn" v-on:click="$emit('view-product',product)"> View </button> 
+      <router-link :to="{name:'Detail',params:{id:product.id}}" >view detail</router-link>
       </div>
    
   </div>
