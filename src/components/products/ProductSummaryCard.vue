@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 col-md-4 ">
+  <div class="col-12  " :class="product.id == 1?'col-md-12':'col-md-4' " >
     <div class="card">
       <router-link :to="{ name: 'Detail', params: { id: product.id } }" class="link-to">
         <img :src="product.image" alt="Card image cap" class="card-img-top"  />
