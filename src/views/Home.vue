@@ -1,17 +1,16 @@
 <template>
   <div class="home">
-    <ProductDescriptionDrawer
-    :product="product"
-    :active="active.product_drawer"
-    v-on:close-product-drawer="closeProductDrawer()"
-   />
     <div class="product-cards-container">
-      <ProductSummaryCard
-        v-for="product in items"
-        :key="product.id"
-        :product="product"
-        v-on:view-product="viewProduct($event)"
-      />
+      <div class="container">
+        <div class="row">
+          <ProductSummaryCard
+            v-for="product in items"
+            :key="product.id"
+            :product="product"
+            v-on:view-product="viewProduct($event)"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -21,31 +20,31 @@
 
 import items from "../data/items.js";
 import ProductSummaryCard from "../components/products/ProductSummaryCard.vue";
-import ProductDescriptionDrawer from "../components/products/ProductDescriptionDrawer.vue"
+// import ProductDescriptionDrawer from "../components/products/ProductDescriptionDrawer.vue";
 export default {
   name: "Home",
   components: {
     ProductSummaryCard,
-    ProductDescriptionDrawer,
+    // ProductDescriptionDrawer,
   },
   data() {
     return {
       items: items,
       product: null,
-      active:{
-        product_drawer: true
-      }
+      active: {
+        product_drawer: true,
+      },
     };
   },
   methods: {
     viewProduct(product) {
       this.product = product;
-       this.active.product_drawer = true
+      this.active.product_drawer = true;
       console.log(this.product);
     },
-    closeProductDrawer(){
-      this.active.product_drawer = false
-    }
+    closeProductDrawer() {
+      this.active.product_drawer = false;
+    },
   },
 };
 </script>

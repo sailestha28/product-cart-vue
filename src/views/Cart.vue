@@ -1,39 +1,37 @@
 <template>
   <div class="cart">
-    <h1>Cart list</h1>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>final price</th>
-        </tr>
-      </thead>
-      <tbody>
-    <CartItemCard 
-    v-for="product in products"
-    :key="product.id"
-    :product="product"
-    />
-      </tbody>
-      <tfoot>
-   <CartFooter 
-   
-    :product="product"
-   />
-      </tfoot>
-    </table>
-
+    <div class="container">
+      <h1>Cart list</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>final price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <CartItemCard
+            v-for="product in products"
+            :key="product.id"
+            :product="product"
+          />
+        </tbody>
+        <tfoot>
+          <CartFooter :product="product" />
+        </tfoot>
+      </table>
+    </div>
   </div>
 </template>
 <script >
 import CartItemCard from "../components/cart/CartItemCard.vue";
 import CartFooter from "../components/cart/CartFooter.vue";
 export default {
-  components:{
+  components: {
     CartItemCard,
-    CartFooter
+    CartFooter,
   },
   data() {
     return {
@@ -44,10 +42,9 @@ export default {
     products() {
       return this.$store.getters.cartItems;
     },
-    totalPrice(){
-      return this.products.price * this.products.quantity
-    }
-
+    totalPrice() {
+      return this.products.price * this.products.quantity;
+    },
   },
 };
 </script>

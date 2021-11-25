@@ -1,7 +1,7 @@
 const items = [
   {
       id:'1',
-    name: "hero Product",
+    name: "Hero Product",
     detail: "Lorem ipsum dolor sit amet",
     price: "99",
     hero: "OMG This just came out today!",
